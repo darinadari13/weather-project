@@ -83,6 +83,7 @@ input[type=search] {
     font-family: Arial, Helvetica, sans-serif;
 }
 small {
+display: block;
 text-align: center;
 font-size: 10px;
 }
