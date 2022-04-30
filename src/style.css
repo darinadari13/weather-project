@@ -1,10 +1,11 @@
 
 input[type=search] {
     padding: 10px;
-    border-radius: 60px;
+    border-radius: 30px;
     border-width: 4px;
-    font-family: monospace;
-    border-color: #e9e4e6;
+    font-family: "Poppins", sans-serif;
+    border-color: #98bbf0;
+    font-weight: lighter;
 }
 .form-style {
     padding: 10px;
@@ -20,58 +21,79 @@ input[type=search] {
 }
 
 .my-container {
-     max-width: 600px;
+    max-width: 600px;
     padding: 15px;
     margin: 20px auto;
     border-radius: 10px;
-    border: 2px solid grey;
+    border: 2px solid linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
     padding: 25px 30px 20px 30px;
+    background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 40px;
+    padding: 5px;
 }
-.border-style-city {
-    border-bottom: 2px solid #3bb4c1;
-    border-top: 2px solid #3bb4c1;
-    border-left: 2px solid #3bb4c1;
-    border-right: 2px solid #3bb4c1;
-    padding: 20px 20px 30px 20px;
+.heading {
+    padding: 5px 10px 10px 10px;
     color:  #222;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.25rem;
-    font-weight: 100;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 200;
+    font-style: bold;
 }
-
+.weather-icon {
+    display: block;
+    margin-left: -25px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
 .style-wind{
     padding-right: 100px;
+    font-family: 'Rajdhani', sans-serif;
 }
-.row-border {
-    border: 5px solid #048998;
-}
-.right-border {
-    border-right: 5px solid #e9e4e6;
-    
-}
+
+
 .row-cell {
-    padding: 30px;
+    margin-top: 10px;
+    padding: 10px 30px 30px 30px;
+    font-family: 'Rajdhani', sans-serif;
+
+}
+.row-cell-monday {
+    padding: 10px 30px 50px 30px;
+    font-family: 'Rajdhani', sans-serif;
+    margin-left: 20px;
 }
 
 #date {
-    padding-left: 25px;
+    padding-left: 17px;
     color: grey;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5em;
 }
 #description {
     display: block;
     text-align: left;
     color:#048998;
     font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    text-transform: capitalize;
 }
+#temperature {
+    font-size: 80px;
+}
+#weather-units{
+    margin-left: 5px;
+    font-size: 18px;
+    position: relative;
+    top: -38px;
+}
+
 #current-location-button {
-    background:#048998;
+    background:#70c6f8;
     width: 100px;
     height: 40px;
     position: relative;
@@ -80,10 +102,17 @@ input[type=search] {
     border-radius: 32px;
     text-align: center;
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: lighter;
+    border: 1px solid #2daef8;
 }
 small {
 display: block;
 text-align: center;
 font-size: 10px;
+font-family: "Poppins", sans-serif;
+margin-top: -10px;
+}
+body {
+    background: url(img/background.png);
 }

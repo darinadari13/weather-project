@@ -32,10 +32,16 @@ function displayWeather(response) {
 function showWeather(response) {
   const temperatureSpan = document.getElementById("temperature");
   const cityName = document.getElementById('city');
+  const windSpan = document.getElementById('wind');
+  const humiditySpan = document.getElementById('humidity');
+  const wind = response.data.wind.speed;
+  const humidity = response.data.main.humidity;
   cityName.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
   temperatureSpan.innerHTML = `${temperature}`;
+  windSpan.innerHTML = `Wind: ${wind} km/h`;
+  humiditySpan.innerHTML = `Humidity: ${humidity} %`;
 };
 function showPosition(position) {
   const apiKey = "e70f9b320d5f26eec768abf6830dd19d";
