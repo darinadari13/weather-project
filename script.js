@@ -17,9 +17,11 @@ displayDate();
 
 function displayWeather(response) {
   const temperatureSpan = document.getElementById("temperature");
+  const cityName = document.getElementById('city');
   const descriptionSpan = document.getElementById("description");
   const windSpan = document.getElementById('wind');
   const humiditySpan = document.getElementById('humidity');
+  cityName.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   const description = response.data.weather[0].description;
   const wind = response.data.wind.speed;
@@ -29,25 +31,25 @@ function displayWeather(response) {
   windSpan.innerHTML = `Wind: ${wind} km/h`;
   humiditySpan.innerHTML = `Humidity: ${humidity} %`;
 }
-function showWeather(response) {
-  const temperatureSpan = document.getElementById("temperature");
-  const cityName = document.getElementById('city');
-  const windSpan = document.getElementById('wind');
-  const humiditySpan = document.getElementById('humidity');
-  const wind = response.data.wind.speed;
-  const humidity = response.data.main.humidity;
-  cityName.innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
-  console.log(temperature);
-  temperatureSpan.innerHTML = `${temperature}`;
-  windSpan.innerHTML = `Wind: ${wind} km/h`;
-  humiditySpan.innerHTML = `Humidity: ${humidity} %`;
-};
+// function showWeather(response) {
+//   const temperatureSpan = document.getElementById("temperature");
+//   const cityName = document.getElementById('city');
+//   const windSpan = document.getElementById('wind');
+//   const humiditySpan = document.getElementById('humidity');
+//   const wind = response.data.wind.speed;
+//   const humidity = response.data.main.humidity;
+//   cityName.innerHTML = response.data.name;
+//   let temperature = Math.round(response.data.main.temp);
+//   console.log(temperature);
+//   temperatureSpan.innerHTML = `${temperature}`;
+//   windSpan.innerHTML = `Wind: ${wind} km/h`;
+//   humiditySpan.innerHTML = `Humidity: ${humidity} %`;
+// };
 function showPosition(position) {
   const apiKey = "e70f9b320d5f26eec768abf6830dd19d";
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
-  axios.get(url).then(showWeather);
+  axios.get(url).then(displayWeather);
 };
 
 function getCurrentPosition(e) {
