@@ -22,8 +22,10 @@ function displayWeather(response) {
   const windSpan = document.getElementById('wind');
   const humiditySpan = document.getElementById('humidity');
   const iconElement = document.getElementById('icon');
+  celsiusTemperature = response.data.main.temp;
+
   cityName.innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(celsiusTemperature);
   const description = response.data.weather[0].description;
   const wind = response.data.wind.speed;
   const humidity = response.data.main.humidity;
@@ -67,21 +69,28 @@ document.getElementById('city-form').onkeydown = function(e){
    }
 };
 
-// function convertToF(e) {
-//   e.preventDefault();
-//   const temperatureSpan = document.getElementById('temperature');
-//   const fahrenheit = parseInt(temperatureSpan.textContent) * 9/5 + 32
-//   temperatureSpan.innerHTML = fahrenheit;
-// }
-
-// function convertToC(e) {
-//   e.preventDefault();
-//   const temperatureSpan = document.getElementById('temperature');
-//   temperatureSpan.innerHTML = 22;
-// }
+function convertToF(e) {
+  e.preventDefault();
+  const temperatureSpan = document.getElementById('temperature');
+  celsiusLink.classList.remove('active');
+  fahrenheitLink.classList.add('active');
+  const fahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  temperatureSpan.innerHTML = Math.round(fahrenheit);
+}
 
 
-//   document.getElementById('fahrenheit-link').addEventListener('click',convertToF);
-//   document.getElementById('celsius-link').addEventListener('click',convertToC);
+let celsiusTemperature = null;
+function convertToC(e) {
+  e.preventDefault();
+  const temperatureSpan = document.getElementById('temperature');
+  celsiusLink.classList.add('active');
+  fahrenheitLink.classList.remove('active');
+  temperatureSpan.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitLink = document.getElementById('fahrenheit-link');
+fahrenheitLink.addEventListener('click',convertToF);
+let celsiusLink = document.getElementById('celsius-link');
+celsiusLink.addEventListener('click',convertToC);
 
 

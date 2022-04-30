@@ -86,14 +86,27 @@ input[type=search] {
 }
 #temperature {
     font-size: 80px;
+
 }
-#weather-units{
+#weather-units {
     margin-left: 5px;
     font-size: 18px;
     position: relative;
     top: -38px;
+    
 }
 
+#weather-units a {
+    text-decoration: none;
+}
+
+#weather-units .active {
+    color: black;
+    cursor: default;
+}
+#weather-units .active:hover {
+    text-decoration: none;
+}
 #current-location-button {
     background:#70c6f8;
     width: 100px;
