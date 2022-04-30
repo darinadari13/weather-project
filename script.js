@@ -21,11 +21,16 @@ function displayWeather(response) {
   const descriptionSpan = document.getElementById("description");
   const windSpan = document.getElementById('wind');
   const humiditySpan = document.getElementById('humidity');
+  const iconElement = document.getElementById('icon');
   cityName.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   const description = response.data.weather[0].description;
   const wind = response.data.wind.speed;
   const humidity = response.data.main.humidity;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   temperatureSpan.innerHTML = `${temperature}`;
   descriptionSpan.innerHTML = `${description}`;
   windSpan.innerHTML = `Wind: ${wind} km/h`;
