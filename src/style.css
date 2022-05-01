@@ -56,17 +56,6 @@ input[type=search] {
 }
 
 
-.row-cell {
-    margin-top: 10px;
-    padding: 10px 30px 30px 30px;
-    font-family: 'Rajdhani', sans-serif;
-
-}
-.row-cell-monday {
-    padding: 10px 30px 50px 30px;
-    font-family: 'Rajdhani', sans-serif;
-    margin-left: 20px;
-}
 
 #date {
     padding-left: 17px;
@@ -127,12 +116,15 @@ text-align: center;
 font-size: 10px;
 font-family: "Poppins", sans-serif;
 margin-top: -10px;
+
 }
 
 .weather-forecast {
     text-align: center;
     margin-left: -20px;
     margin-bottom: -35px;
+    font-family: 'Rajdhani', sans-serif;
+    padding: 10px 30px 50px 30px;
 }
 .weather-forecast-date {
     color: #048998;

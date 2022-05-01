@@ -24,6 +24,8 @@ function displayWeather(response) {
   const iconElement = document.getElementById('icon');
   celsiusTemperature = response.data.main.temp;
 
+
+
   cityName.innerHTML = response.data.name;
   let temperature = Math.round(celsiusTemperature);
   const description = response.data.weather[0].description;
@@ -88,6 +90,34 @@ function convertToC(e) {
   temperatureSpan.innerHTML = Math.round(celsiusTemperature);
 }
 
+function dispalyForecast() {
+  let forecastElement = document.querySelector('#forecast');
+
+  let forecastHTML = `<div class="row">`;
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  days.forEach(function (day) {
+    forecastHTML = 
+    forecastHTML + 
+    `
+    <div class="col-sm">
+       <div class='weather-forecast-date'>${day}</div>
+         <img id='forecast-icon' src="http://openweathermap.org/img/wn/01d@2x.png" width='50'/><br/>
+    <div class='weather-forecast-temperature'> 
+      <span class='weather-forecast-temperature-max'>10</span> 
+      <span class='weather-forecast-temperature-min'>8</span>
+        </div>
+       </div>  
+      
+      `;
+  });
+
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+
+dispalyForecast();
 let fahrenheitLink = document.getElementById('fahrenheit-link');
 fahrenheitLink.addEventListener('click',convertToF);
 let celsiusLink = document.getElementById('celsius-link');
