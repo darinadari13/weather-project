@@ -128,6 +128,15 @@ font-size: 10px;
 font-family: "Poppins", sans-serif;
 margin-top: -10px;
 }
-body {
-    background: url(img/background.png);
+
+.weather-forecast {
+    text-align: center;
+    margin-left: -20px;
+    margin-bottom: -35px;
+}
+.weather-forecast-date {
+    color: #048998;
+}
+.weather-forecast-temperature-min {
+    opacity: 0.5;
 }
