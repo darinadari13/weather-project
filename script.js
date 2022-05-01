@@ -15,6 +15,12 @@ function displayDate() {
 }
 displayDate();
 
+function getForecast(coordinates) {
+  const key = 'e70f9b320d5f26eec768abf6830dd19d'
+  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&unit=metric`;
+  axios.get(apiUrl).then(dispalyForecast);
+}
+
 function displayWeather(response) {
   const temperatureSpan = document.getElementById("temperature");
   const cityName = document.getElementById('city');
@@ -39,6 +45,8 @@ function displayWeather(response) {
   descriptionSpan.innerHTML = `${description}`;
   windSpan.innerHTML = `Wind: ${wind} km/h`;
   humiditySpan.innerHTML = `Humidity: ${humidity} %`;
+
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -90,34 +98,32 @@ function convertToC(e) {
   temperatureSpan.innerHTML = Math.round(celsiusTemperature);
 }
 
-function dispalyForecast() {
+function dispalyForecast(response) {
   let forecastElement = document.querySelector('#forecast');
 
   let forecastHTML = `<div class="row">`;
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
   days.forEach(function (day) {
-    forecastHTML = 
-    forecastHTML + 
-    `
-    <div class="col-sm">
-       <div class='weather-forecast-date'>${day}</div>
-         <img id='forecast-icon' src="http://openweathermap.org/img/wn/01d@2x.png" width='50'/><br/>
-    <div class='weather-forecast-temperature'> 
-      <span class='weather-forecast-temperature-max'>10</span> 
-      <span class='weather-forecast-temperature-min'>8</span>
-        </div>
-       </div>  
-      
-      `;
+    forecastHTML += `
+      <div class="col-sm">
+        <div class='weather-forecast-date'>${day}</div>
+          <img id='forecast-icon' src="http://openweathermap.org/img/wn/01d@2x.png" width='50'/><br/>
+      <div class='weather-forecast-temperature'> 
+        <span class='weather-forecast-temperature-max'>10°</span> 
+        <span class='weather-forecast-temperature-min'>8°</span>
+          </div>
+        </div>  
+        
+        `;
   });
 
 
-  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML = forecastHTML + '</div>';
   forecastElement.innerHTML = forecastHTML;
 }
 
 
-dispalyForecast();
+
 let fahrenheitLink = document.getElementById('fahrenheit-link');
 fahrenheitLink.addEventListener('click',convertToF);
 let celsiusLink = document.getElementById('celsius-link');
